@@ -1,0 +1,494 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Travel</title>
+
+    <!-- روابط التنسيق -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@12/swiper-bundle.min.css" />
+    <link rel=" stylesheet" href="css/normlize.css">
+    <link rel="stylesheet" href="css/all.min.css">
+    <link rel="stylesheet" href="css/travel.css">
+
+    <!-- الخطوط -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Work+Sans:ital,wght@0,100..900;1,100..900&display=swap"
+        rel="stylesheet">
+</head>
+
+<body>
+
+    <!-- ====== Header ====== -->
+    <header>
+        <i id="mainbar" class="fas fa-bars"></i>
+        <div class="logo">TRAVEL</div>
+
+        <nav class="navbar">
+            <a href="#home">home</a>
+            <a href="#trips">trip</a>
+            <a href="#Mybook">mybook</a>
+            <a href="#review">review</a>
+            <a href="#contact us">contact us</a>
+            <a href="#fAQ">FAQ</a>
+        </nav>
+
+        <div class="icons">
+            <div id="cartBtn"><i class="fa-solid fa-cart-shopping"></i></div>
+
+
+
+            <i class="fas fa-user" id="login-btn"></i>
+
+        </div>
+
+    </header>
+    <div id="cartModal">
+
+        <span id="closeCart" style="cursor:pointer;">&times;</span>
+        <h3>My Cart</h3>
+        <div id="cartContainer"></div>
+
+    </div>
+
+
+
+    <!-- ====== Auth Modal ====== -->
+    <div class="auth-model">
+        <i class="fas fa-times" id="close"></i>
+        <!--======profile=====---->
+
+        <div id="profile-container" class="hidden">
+            <h3> profile</h3>
+            <img src="images/photo_2025-11-13_18-24-24.jpg" alt="">
+            <div id="profile-info">
+                <p>name : <span id="profile-name"></span></p>
+                <p>email: <span id="profile-email"></span></p>
+                <p>phone: <span id="profile-phone"></span></p>
+                <p>gender: <span id="profile-gender"></span></p>
+                <p>country: <span id="profile-country"></span></p>
+
+            </div>
+            <div class="profile-btn btn1">
+                <button id="editProfileBtn" class="btn">edit</button>
+                <button id="logout-btn" class="btn">logout</button>
+            </div>
+        </div>
+        <div id="editProfileModal" class="hidden">
+            <div class="modal-content">
+                <h3>edit data</h3>
+
+                <form id="editProfileForm">
+                    <label>first-name</label>
+                    <input type="text" id="edit-first" />
+
+                    <label>last-name</label>
+                    <input type="text" id="edit-last" />
+
+                    <label>email</label>
+                    <input type="email" id="edit-email" />
+
+                    <label>phone</label>
+                    <input type="text" id="edit-phone" />
+                    <label>country</label>
+                    <input type="text" id="edit-country" />
+                    <label>gender</label>
+                    <select id="gender-edit">
+                        <option value="male">male</option>
+                        <option value="female">female</option>
+                    </select>
+                    <div class="btn-edit">
+                        <button type="submit">save</button>
+                        <button type="button" id="closeEdit" class="btn-close">close</button>
+                        <button type="button" id="deleteAccount" class="del-count">delete Account</button>
+
+                    </div>
+                </form>
+            </div>
+        </div>
+
+        <!-- Login Form -->
+        <div class="form-container login">
+            <form action="">
+                <h3>Login</h3>
+
+                <div class="input-box">
+                    <input type="text" id="login-email" placeholder="enter your email">
+                </div>
+
+                <div class="input-box">
+                    <input type="password" id="login-password" placeholder="enter your password">
+                </div>
+
+                <button type="button" id="login-bt" class="btn">Login</button>
+
+                <p>Don't have an account? <a href="#" class="register-link">Register now</a></p>
+            </form>
+        </div>
+
+
+        <!-- Register Form -->
+        <div class="form-container register">
+            <h3>Register</h3>
+            <form id="registerForm" action="">
+                <div class="input-box">
+                    <input type="text" id="first-name" placeholder="enter your first name">
+                </div>
+
+                <div class="input-box">
+                    <input type="text" id="last-name" placeholder="enter your last name">
+                </div>
+
+                <div class="input-box">
+                    <input type="email" id="reg-email" placeholder="enter your email">
+                </div>
+
+                <div class="input-box">
+                    <input type="tel" id="phone" placeholder="enter your phone">
+                </div>
+
+                <div class="input-box">
+                    <input type="password" id="password" placeholder="enter your password">
+                </div>
+
+                <div class="input-box">
+                    <input type="text" id="country" placeholder="enter your country">
+                </div>
+
+                <select id="gender">
+                    <option value="male">male</option>
+                    <option value="female">female</option>
+                </select>
+
+                <input type="submit" value="register" class="btn" id="register-bt">
+
+                <p>Already have an account? <a href="#" class="login-link">Login</a></p>
+            </form>
+        </div>
+    </div>
+
+    <!-- ====== Home Section ====== -->
+    <section class="home" id="home">
+        <div class="content">
+            <h3>Syria Travel</h3>
+        </div>
+    </section>
+    <!--=========trip section==========-->
+    <section class="trips" id="trips">
+        <h1 class="heading">
+            <span>T</span>
+            <span>r</span>
+            <span>i</span>
+            <span>p</span>
+            <span>s</span>
+        </h1>
+        <div class="box-container" id="tripsContainer">
+        </div>
+
+    </section>
+
+    <div id="tripModal" class="hidden">
+        <div class="modal-contenttrip">
+            <span id="closedet">&times;</span>
+            <div class="info">
+                <img id="modalImage" src="">
+                <div class="info-content">
+                    <h2 id="modalRoute"></h2>
+                    <p id="modalCompany"></p>
+                    <p id="modalTime"></p>
+                    <p id="modalStatus"></p>
+                    <p id="modalRating"></p>
+                    <p id="phone"></p>
+
+
+                </div>
+            </div>
+
+            <div class="det">
+                <h3>Details:</h3>
+                <p id="modalDetails"></p>
+            </div>
+
+            <div class="srv">
+                <div id="servicesContainer">
+
+                </div>
+                <div class="add-cart-wrapper">
+                    <button id="btn-book" data-id="">book Now</button>
+                </div>
+            </div>
+
+        </div>
+    </div>
+    <div id="bookModal" class="hidden">
+
+        <div class="modal-contentbook">
+            <span id="closebook">&times;</span>
+            <div class="infobook">
+                <h3>book information</h3>
+                <label for="" class="location">location:</label>
+                <input class="loca" placeholder="your current location" value="">
+
+
+                <p id="seat">The Available Seats is : <span id="num-seats"></span></p>
+                <label class="count">seat count :</label>
+                <input type="number" id="seatCount" min="0" max="24" value="1">
+                <p id="seatError" style="color: red;display: none;"></p>
+                <div id="servicecontent"></div>
+                <p>price: <span id="pricebook"></span></p>
+            </div>
+            <div class="img">
+                <div>
+                    <h4 class="tr"></h4>
+                    <img id="imgbook" src="">
+                </div>
+                <button id="bookNow">book</button>
+            </div>
+        </div>
+    </div>
+
+    <section id="mybooksec">
+        <h1 class="heading">
+            <span>M</span>
+            <span class="space">y</span>
+
+            <span>b</span>
+            <span>o</span>
+            <span>o</span>
+            <span>k</span>
+        </h1>
+        <div class="btn-mybook">
+            <button class="button" id="mybook">
+                My Book
+                <svg fill="currentColor" viewBox="0 0 24 24" class="icon">
+                    <path clip-rule="evenodd"
+                        d="M12 2.25c-5.385 0-9.75 4.365-9.75 9.75s4.365 9.75 9.75 9.75 9.75-4.365 9.75-9.75S17.385 2.25 12 2.25zm4.28 10.28a.75.75 0 000-1.06l-3-3a.75.75 0 10-1.06 1.06l1.72 1.72H8.25a.75.75 0 000 1.5h5.69l-1.72 1.72a.75.75 0 101.06 1.06l3-3z"
+                        fill-rule="evenodd"></path>
+                </svg>
+            </button>
+        </div>
+    </section>
+    <section class="review" id="review">
+        <h1 class="heading">
+            <span>R</span>
+            <span>e</span>
+            <span>v</span>
+            <span>i</span>
+            <span>e</span>
+            <span>w</span>
+        </h1>
+        <div class=" swiper review-slider">
+            <div class="swiper-wrapper">
+                <div class="swiper-slide slide">
+                    <div class="box">
+                        <img src="images/outdoor-shot-young-caucasian-man-with-beard-relaxing-open-air-surrounded-by-beautiful-mountain-setting-rainforest.jpg"
+                            alt="">
+                        <h3>john deo</h3>
+                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Nesciunt commodi incidunt est
+                            expedita quibusdam pariatur corrupti inventore, facere vero. Placeat corporis modi dolorem
+                            in libero sit sed ratione culpa maiores!</p>
+                        <div class="stars">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="far fa-star"></i>
+                        </div>
+                    </div>
+                </div>
+                <div class="swiper-slide">
+                    <div class="box">
+                        <img src="images/outdoor-shot-young-caucasian-man-with-beard-relaxing-open-air-surrounded-by-beautiful-mountain-setting-rainforest.jpg"
+                            alt="">
+                        <h3>john deo</h3>
+                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Nesciunt commodi incidunt est
+                            expedita quibusdam pariatur corrupti inventore, facere vero. Placeat corporis modi dolorem
+                            in libero sit sed ratione culpa maiores!</p>
+                        <div class="stars">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="far fa-star"></i>
+                        </div>
+                    </div>
+                </div>
+                <div class="swiper-slide">
+                    <div class="box">
+                        <img src="images/selfie-portrait-videocall.jpg" alt="">
+                        <h3>sima doh</h3>
+                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Nesciunt commodi incidunt est
+                            expedita quibusdam pariatur corrupti inventore, facere vero. Placeat corporis modi dolorem
+                            in libero sit sed ratione culpa maiores!</p>
+                        <div class="stars">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="far fa-star"></i>
+                            <i class="far fa-star"></i>
+                        </div>
+                    </div>
+                </div>
+                <div class="swiper-slide">
+                    <div class="box">
+                        <img src="images/outdoor-shot-young-caucasian-man-with-beard-relaxing-open-air-surrounded-by-beautiful-mountain-setting-rainforest.jpg"
+                            alt="">
+                        <h3>john deo</h3>
+                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Nesciunt commodi incidunt est
+                            expedita quibusdam pariatur corrupti inventore, facere vero. Placeat corporis modi dolorem
+                            in libero sit sed ratione culpa maiores!</p>
+                        <div class="stars">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+    </section>
+    <section id="contact us" class="contact-section">
+        <h1 class="heading">
+            <span>C</span>
+            <span>o</span>
+            <span>n</span>
+            <span>a</span>
+            <span>c</span>
+            <span class="space">t</span>
+
+            <span>u</span>
+            <span>s</span>
+        </h1>
+        <div class="container">
+
+            <div class="contact-content">
+                <form class="contact-form">
+                    <input type="text" name="name" placeholder="Your Name" required>
+                    <input type="email" name="email" placeholder="Your Email" required>
+                    <input type="tel" name="phone" placeholder="Phone Number">
+                    <textarea name="message" placeholder="Your Message" rows="6" required></textarea>
+                    <button type="submit">Send Message</button>
+                </form>
+                <div class="contact-info">
+                    <img src="images/photo_2025-12-14_00-20-19.jpg" alt="">
+                </div>
+            </div>
+        </div>
+        </div>
+    </section>
+
+    <section id="fAQ" class="faq-section">
+        <h1 class="heading">
+            <span>F</span>
+            <span>A</span>
+            <span>Q</span>
+
+        </h1>
+        <div class="container">
+            <h2 class="faq-title">Frequently Asked Questions</h2>
+
+            <div class="faq-item">
+                <button class="faq-question">
+                    How can I choose the right trip?
+                    <span class="faq-icon">+</span>
+                </button>
+                <div class="faq-answer">
+                    You can browse trips by city, date, and price. Click "View Details" for full information.
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <button class="faq-question">
+                    What are the payment options?
+                    <span class="faq-icon">+</span>
+                </button>
+                <div class="faq-answer">
+                    All payments are made directly at the company office. Online payment is not available.
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <button class="faq-question">
+                    Can I modify or cancel my reservation?
+                    <span class="faq-icon">+</span>
+                </button>
+                <div class="faq-answer">
+                    You can modify seats or services in “My Bookings”, or cancel before the trip starts.
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <button class="faq-question">
+                    Can I add extra services later?
+                    <span class="faq-icon">+</span>
+                </button>
+                <div class="faq-answer">
+                    Yes, you can add extra services such as Wi-Fi, water, or charging by editing your reservation.
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <button class="faq-question">
+                    Do trips include stops or breaks?
+                    <span class="faq-icon">+</span>
+                </button>
+                <div class="faq-answer">
+                    Some trips include one or more stops, depending on the route. All stop details are shown inside the
+                    trip information page.
+                </div>
+            </div>
+        </div>
+    </section>
+    <footer class="footer">
+        <div class="container footer-container">
+            <!-- About -->
+            <div class="footer-about">
+                <h3>syria travel</h3>
+                <p>Providing the best trips across Syria
+                    with professional service.</p>
+            </div>
+
+            <!-- Quick Links -->
+            <div class="footer-links">
+                <h4>Quick Links</h4>
+                <ul>
+                    <li><a href="#home">Home</a></li>
+                    <li><a href="#trips">Trips</a></li>
+                    <li><a href="#myBook">Trips</a></li>
+                    <li><a href="#contact">Contact Us</a></li>
+                    <li><a href="#faq">FAQ</a></li>
+                </ul>
+            </div>
+
+            <!-- Contact Info -->
+            <div class="footer-contact">
+                <h4>Contact</h4>
+                <p>Phone: +963 123 456 789</p>
+                <p>Email: info@SyriaTravel.com</p>
+                <p>Address: 123 Travel Street, Damascus, Syria</p>
+
+                <!-- Social Media -->
+                <div class="social-icons">
+                    <a href="https://facebook.com/yourpage" target="_blank"><i class="fab fa-facebook-f"></i></a>
+                    <a href="https://instagram.com/yourpage" target="_blank"><i class="fab fa-instagram"></i></a>
+                    <a href="https://wa.me/963123456789" target="_blank"><i class="fab fa-whatsapp"></i></a>
+                </div>
+            </div>
+        </div>
+
+        <!-- Footer Bottom -->
+        <div class="footer-bottom">
+            <p>© 2025 All rights reserved | SYRIA TRAVEL</p>
+        </div>
+    </footer>
+
+    <!-- ====== Scripts ====== -->
+    <script src="https://cdn.jsdelivr.net/npm/swiper@12/swiper-bundle.min.js"></script>
+    <script src="main.js"></script>
+
+</body>
+
+</html>
